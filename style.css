@@ -7,8 +7,16 @@
 html,
 body {
   height: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
+}
+
+p {
+  color: grey;
+  line-height: 1.15;
+  font-size: 1.5rem;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .hero-wrapper {
@@ -27,7 +35,7 @@ body {
   align-items: center;
   text-align: center;
   color: black;
-  background-color: rgb(255, 254, 252);
+  background-color: rgba(214, 224, 231, 0.683);
 }
 
 .title {
@@ -44,22 +52,110 @@ body {
   font-weight: 700;
 }
 
+.section-container {
+  background-color: rgba(214, 224, 231, 0.683);
+}
 .contact {
-  width: 100%;
-  overflow: hidden;
-  background-color: rgb(110, 164, 215);
-}
-
-.contact .container {
-  height: 100vh;
-  min-height: 700px;
+  background-color: rgba(214, 224, 231, 0.683);
+  padding: 4rem 1rem;
   display: flex;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  justify-content: center;
 }
 
-@media (max-width: 700px) {
-  .hero-wrapper {
-    flex-direction: column;
+/* Limita largura e centraliza */
+.left {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Títulos */
+.contact-heading .title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.contact-heading .title span {
+  color: #0d6efd;
+}
+
+.contact-heading p {
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Grid do formulário */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+  margin-top: 2rem;
+}
+
+/* Campo que ocupa as duas colunas */
+.contact-form .full-width {
+  grid-column: 1 / -1;
+}
+
+/* Cada wrapper de input */
+.input-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label acima do campo */
+.input-wrap label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Inputs e textarea */
+.input-wrap input,
+.input-wrap textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+/* Ícone posicionado no canto */
+.input-wrap .icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #888;
+  pointer-events: none;
+}
+
+/* Botão de enviar */
+.btn-submit {
+  grid-column: 1 / -1;
+  padding: 0.75rem;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #0b5ed7;
+}
+
+/* Responsividade: em telas pequenas, uma coluna só */
+@media (max-width: 600px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-heading .title {
+    font-size: 2.5rem;
   }
 }
